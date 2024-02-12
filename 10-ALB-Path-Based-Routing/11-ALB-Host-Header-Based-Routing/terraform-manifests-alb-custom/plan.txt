@@ -1,0 +1,1839 @@
+[0m[1mdata.aws_route53_zone.mydomain: Reading...[0m[0m
+[0m[1mmodule.ec2_public.data.aws_partition.current: Reading...[0m[0m
+[0m[1mdata.aws_ami.amzlinux2: Reading...[0m[0m
+[0m[1mmodule.alb.data.aws_partition.current: Reading...[0m[0m
+[0m[1mmodule.alb.data.aws_partition.current: Read complete after 0s [id=aws][0m
+[0m[1mmodule.ec2_public.data.aws_partition.current: Read complete after 0s [id=aws][0m
+[0m[1mdata.aws_ami.amzlinux2: Read complete after 2s [id=ami-03c951bbe993ea087][0m
+[0m[1mdata.aws_route53_zone.mydomain: Read complete after 2s [id=Z0411670XJWCG63Q8LSU][0m
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  [32m+[0m create[0m
+ [36m<=[0m read (data resources)[0m
+
+Terraform will perform the following actions:
+
+[1m  # aws_eip.bastion_eip[0m will be created
+[0m  [32m+[0m[0m resource "aws_eip" "bastion_eip" {
+      [32m+[0m[0m allocation_id        = (known after apply)
+      [32m+[0m[0m association_id       = (known after apply)
+      [32m+[0m[0m carrier_ip           = (known after apply)
+      [32m+[0m[0m customer_owned_ip    = (known after apply)
+      [32m+[0m[0m domain               = "vpc"
+      [32m+[0m[0m id                   = (known after apply)
+      [32m+[0m[0m instance             = (known after apply)
+      [32m+[0m[0m network_border_group = (known after apply)
+      [32m+[0m[0m network_interface    = (known after apply)
+      [32m+[0m[0m private_dns          = (known after apply)
+      [32m+[0m[0m private_ip           = (known after apply)
+      [32m+[0m[0m public_dns           = (known after apply)
+      [32m+[0m[0m public_ip            = (known after apply)
+      [32m+[0m[0m public_ipv4_pool     = (known after apply)
+      [32m+[0m[0m tags                 = {
+          [32m+[0m[0m "environment" = "stag-lbtest"
+          [32m+[0m[0m "owners"      = "hr-lbtest"
+        }
+      [32m+[0m[0m tags_all             = {
+          [32m+[0m[0m "environment" = "stag-lbtest"
+          [32m+[0m[0m "owners"      = "hr-lbtest"
+        }
+      [32m+[0m[0m vpc                  = (known after apply)
+    }
+
+[1m  # aws_lb_target_group_attachment.mytg1["0"][0m will be created
+[0m  [32m+[0m[0m resource "aws_lb_target_group_attachment" "mytg1" {
+      [32m+[0m[0m id               = (known after apply)
+      [32m+[0m[0m port             = 80
+      [32m+[0m[0m target_group_arn = (known after apply)
+      [32m+[0m[0m target_id        = (known after apply)
+    }
+
+[1m  # aws_lb_target_group_attachment.mytg1["1"][0m will be created
+[0m  [32m+[0m[0m resource "aws_lb_target_group_attachment" "mytg1" {
+      [32m+[0m[0m id               = (known after apply)
+      [32m+[0m[0m port             = 80
+      [32m+[0m[0m target_group_arn = (known after apply)
+      [32m+[0m[0m target_id        = (known after apply)
+    }
+
+[1m  # aws_lb_target_group_attachment.mytg2["0"][0m will be created
+[0m  [32m+[0m[0m resource "aws_lb_target_group_attachment" "mytg2" {
+      [32m+[0m[0m id               = (known after apply)
+      [32m+[0m[0m port             = 80
+      [32m+[0m[0m target_group_arn = (known after apply)
+      [32m+[0m[0m target_id        = (known after apply)
+    }
+
+[1m  # aws_lb_target_group_attachment.mytg2["1"][0m will be created
+[0m  [32m+[0m[0m resource "aws_lb_target_group_attachment" "mytg2" {
+      [32m+[0m[0m id               = (known after apply)
+      [32m+[0m[0m port             = 80
+      [32m+[0m[0m target_group_arn = (known after apply)
+      [32m+[0m[0m target_id        = (known after apply)
+    }
+
+[1m  # null_resource.name[0m will be created
+[0m  [32m+[0m[0m resource "null_resource" "name" {
+      [32m+[0m[0m id = (known after apply)
+    }
+
+[1m  # module.acm.aws_acm_certificate.this[0][0m will be created
+[0m  [32m+[0m[0m resource "aws_acm_certificate" "this" {
+      [32m+[0m[0m arn                       = (known after apply)
+      [32m+[0m[0m domain_name               = "Z0411670XJWCG63Q8LSU"
+      [32m+[0m[0m domain_validation_options = [
+          [32m+[0m[0m {
+              [32m+[0m[0m domain_name           = "*.cdots-learning.com"
+              [32m+[0m[0m resource_record_name  = (known after apply)
+              [32m+[0m[0m resource_record_type  = (known after apply)
+              [32m+[0m[0m resource_record_value = (known after apply)
+            },
+          [32m+[0m[0m {
+              [32m+[0m[0m domain_name           = "Z0411670XJWCG63Q8LSU"
+              [32m+[0m[0m resource_record_name  = (known after apply)
+              [32m+[0m[0m resource_record_type  = (known after apply)
+              [32m+[0m[0m resource_record_value = (known after apply)
+            },
+        ]
+      [32m+[0m[0m id                        = (known after apply)
+      [32m+[0m[0m key_algorithm             = (known after apply)
+      [32m+[0m[0m not_after                 = (known after apply)
+      [32m+[0m[0m not_before                = (known after apply)
+      [32m+[0m[0m pending_renewal           = (known after apply)
+      [32m+[0m[0m renewal_eligibility       = (known after apply)
+      [32m+[0m[0m renewal_summary           = (known after apply)
+      [32m+[0m[0m status                    = (known after apply)
+      [32m+[0m[0m subject_alternative_names = [
+          [32m+[0m[0m "*.cdots-learning.com",
+          [32m+[0m[0m "Z0411670XJWCG63Q8LSU",
+        ]
+      [32m+[0m[0m tags                      = {
+          [32m+[0m[0m "environment" = "stag-lbtest"
+          [32m+[0m[0m "owners"      = "hr-lbtest"
+        }
+      [32m+[0m[0m tags_all                  = {
+          [32m+[0m[0m "environment" = "stag-lbtest"
+          [32m+[0m[0m "owners"      = "hr-lbtest"
+        }
+      [32m+[0m[0m type                      = (known after apply)
+      [32m+[0m[0m validation_emails         = (known after apply)
+      [32m+[0m[0m validation_method         = "DNS"
+
+      [32m+[0m[0m options {
+          [32m+[0m[0m certificate_transparency_logging_preference = "ENABLED"
+        }
+    }
+
+[1m  # module.acm.aws_acm_certificate_validation.this[0][0m will be created
+[0m  [32m+[0m[0m resource "aws_acm_certificate_validation" "this" {
+      [32m+[0m[0m certificate_arn         = (known after apply)
+      [32m+[0m[0m id                      = (known after apply)
+      [32m+[0m[0m validation_record_fqdns = (known after apply)
+
+      [32m+[0m[0m timeouts {}
+    }
+
+[1m  # module.acm.aws_route53_record.validation[0][0m will be created
+[0m  [32m+[0m[0m resource "aws_route53_record" "validation" {
+      [32m+[0m[0m allow_overwrite = true
+      [32m+[0m[0m fqdn            = (known after apply)
+      [32m+[0m[0m id              = (known after apply)
+      [32m+[0m[0m name            = (known after apply)
+      [32m+[0m[0m records         = (known after apply)
+      [32m+[0m[0m ttl             = 60
+      [32m+[0m[0m type            = (known after apply)
+      [32m+[0m[0m zone_id         = "Z0411670XJWCG63Q8LSU"
+    }
+
+[1m  # module.acm.aws_route53_record.validation[1][0m will be created
+[0m  [32m+[0m[0m resource "aws_route53_record" "validation" {
+      [32m+[0m[0m allow_overwrite = true
+      [32m+[0m[0m fqdn            = (known after apply)
+      [32m+[0m[0m id              = (known after apply)
+      [32m+[0m[0m name            = (known after apply)
+      [32m+[0m[0m records         = (known after apply)
+      [32m+[0m[0m ttl             = 60
+      [32m+[0m[0m type            = (known after apply)
+      [32m+[0m[0m zone_id         = "Z0411670XJWCG63Q8LSU"
+    }
+
+[1m  # module.alb.aws_lb.this[0][0m will be created
+[0m  [32m+[0m[0m resource "aws_lb" "this" {
+      [32m+[0m[0m arn                                                          = (known after apply)
+      [32m+[0m[0m arn_suffix                                                   = (known after apply)
+      [32m+[0m[0m desync_mitigation_mode                                       = "defensive"
+      [32m+[0m[0m dns_name                                                     = (known after apply)
+      [32m+[0m[0m drop_invalid_header_fields                                   = true
+      [32m+[0m[0m enable_deletion_protection                                   = false
+      [32m+[0m[0m enable_http2                                                 = true
+      [32m+[0m[0m enable_tls_version_and_cipher_suite_headers                  = false
+      [32m+[0m[0m enable_waf_fail_open                                         = false
+      [32m+[0m[0m enable_xff_client_port                                       = false
+      [32m+[0m[0m enforce_security_group_inbound_rules_on_private_link_traffic = (known after apply)
+      [32m+[0m[0m id                                                           = (known after apply)
+      [32m+[0m[0m idle_timeout                                                 = 60
+      [32m+[0m[0m internal                                                     = (known after apply)
+      [32m+[0m[0m ip_address_type                                              = (known after apply)
+      [32m+[0m[0m load_balancer_type                                           = "application"
+      [32m+[0m[0m name                                                         = "hr-lbtest-stag-lbtest-alb"
+      [32m+[0m[0m name_prefix                                                  = (known after apply)
+      [32m+[0m[0m preserve_host_header                                         = false
+      [32m+[0m[0m security_groups                                              = (known after apply)
+      [32m+[0m[0m subnets                                                      = (known after apply)
+      [32m+[0m[0m tags                                                         = {
+          [32m+[0m[0m "environment"           = "stag-lbtest"
+          [32m+[0m[0m "owners"                = "hr-lbtest"
+          [32m+[0m[0m "terraform-aws-modules" = "alb"
+        }
+      [32m+[0m[0m tags_all                                                     = {
+          [32m+[0m[0m "environment"           = "stag-lbtest"
+          [32m+[0m[0m "owners"                = "hr-lbtest"
+          [32m+[0m[0m "terraform-aws-modules" = "alb"
+        }
+      [32m+[0m[0m vpc_id                                                       = (known after apply)
+      [32m+[0m[0m xff_header_processing_mode                                   = "append"
+      [32m+[0m[0m zone_id                                                      = (known after apply)
+
+      [32m+[0m[0m timeouts {}
+    }
+
+[1m  # module.alb.aws_lb_listener.this["my-http-https-redirect"][0m will be created
+[0m  [32m+[0m[0m resource "aws_lb_listener" "this" {
+      [32m+[0m[0m arn               = (known after apply)
+      [32m+[0m[0m id                = (known after apply)
+      [32m+[0m[0m load_balancer_arn = (known after apply)
+      [32m+[0m[0m port              = 80
+      [32m+[0m[0m protocol          = "HTTP"
+      [32m+[0m[0m ssl_policy        = (known after apply)
+      [32m+[0m[0m tags              = {
+          [32m+[0m[0m "environment"           = "stag-lbtest"
+          [32m+[0m[0m "owners"                = "hr-lbtest"
+          [32m+[0m[0m "terraform-aws-modules" = "alb"
+        }
+      [32m+[0m[0m tags_all          = {
+          [32m+[0m[0m "environment"           = "stag-lbtest"
+          [32m+[0m[0m "owners"                = "hr-lbtest"
+          [32m+[0m[0m "terraform-aws-modules" = "alb"
+        }
+
+      [32m+[0m[0m default_action {
+          [32m+[0m[0m order = (known after apply)
+          [32m+[0m[0m type  = "redirect"
+
+          [32m+[0m[0m redirect {
+              [32m+[0m[0m host        = "#{host}"
+              [32m+[0m[0m path        = "/#{path}"
+              [32m+[0m[0m port        = "443"
+              [32m+[0m[0m protocol    = "HTTPS"
+              [32m+[0m[0m query       = "#{query}"
+              [32m+[0m[0m status_code = "HTTP_301"
+            }
+        }
+    }
+
+[1m  # module.alb.aws_lb_listener.this["my-https-listener"][0m will be created
+[0m  [32m+[0m[0m resource "aws_lb_listener" "this" {
+      [32m+[0m[0m arn               = (known after apply)
+      [32m+[0m[0m certificate_arn   = (known after apply)
+      [32m+[0m[0m id                = (known after apply)
+      [32m+[0m[0m load_balancer_arn = (known after apply)
+      [32m+[0m[0m port              = 443
+      [32m+[0m[0m protocol          = "HTTPS"
+      [32m+[0m[0m ssl_policy        = "ELBSecurityPolicy-TLS13-1-2-Res-2021-06"
+      [32m+[0m[0m tags              = {
+          [32m+[0m[0m "environment"           = "stag-lbtest"
+          [32m+[0m[0m "owners"                = "hr-lbtest"
+          [32m+[0m[0m "terraform-aws-modules" = "alb"
+        }
+      [32m+[0m[0m tags_all          = {
+          [32m+[0m[0m "environment"           = "stag-lbtest"
+          [32m+[0m[0m "owners"                = "hr-lbtest"
+          [32m+[0m[0m "terraform-aws-modules" = "alb"
+        }
+
+      [32m+[0m[0m default_action {
+          [32m+[0m[0m order = (known after apply)
+          [32m+[0m[0m type  = "fixed-response"
+
+          [32m+[0m[0m fixed_response {
+              [32m+[0m[0m content_type = "text/plain"
+              [32m+[0m[0m message_body = "Fixed Static message - for Root Context"
+              [32m+[0m[0m status_code  = "200"
+            }
+        }
+    }
+
+[1m  # module.alb.aws_lb_listener_rule.this["my-https-listener/myapp1-rule"][0m will be created
+[0m  [32m+[0m[0m resource "aws_lb_listener_rule" "this" {
+      [32m+[0m[0m arn          = (known after apply)
+      [32m+[0m[0m id           = (known after apply)
+      [32m+[0m[0m listener_arn = (known after apply)
+      [32m+[0m[0m priority     = (known after apply)
+      [32m+[0m[0m tags         = {
+          [32m+[0m[0m "environment"           = "stag-lbtest"
+          [32m+[0m[0m "owners"                = "hr-lbtest"
+          [32m+[0m[0m "terraform-aws-modules" = "alb"
+        }
+      [32m+[0m[0m tags_all     = {
+          [32m+[0m[0m "environment"           = "stag-lbtest"
+          [32m+[0m[0m "owners"                = "hr-lbtest"
+          [32m+[0m[0m "terraform-aws-modules" = "alb"
+        }
+
+      [32m+[0m[0m action {
+          [32m+[0m[0m order = (known after apply)
+          [32m+[0m[0m type  = "forward"
+
+          [32m+[0m[0m forward {
+              [32m+[0m[0m stickiness {
+                  [32m+[0m[0m duration = 3600
+                  [32m+[0m[0m enabled  = true
+                }
+              [32m+[0m[0m target_group {
+                  [32m+[0m[0m arn    = (known after apply)
+                  [32m+[0m[0m weight = 1
+                }
+            }
+        }
+
+      [32m+[0m[0m condition {
+          [32m+[0m[0m path_pattern {
+              [32m+[0m[0m values = [
+                  [32m+[0m[0m "/app1*",
+                ]
+            }
+        }
+    }
+
+[1m  # module.alb.aws_lb_listener_rule.this["my-https-listener/myapp2-rule"][0m will be created
+[0m  [32m+[0m[0m resource "aws_lb_listener_rule" "this" {
+      [32m+[0m[0m arn          = (known after apply)
+      [32m+[0m[0m id           = (known after apply)
+      [32m+[0m[0m listener_arn = (known after apply)
+      [32m+[0m[0m priority     = (known after apply)
+      [32m+[0m[0m tags         = {
+          [32m+[0m[0m "environment"           = "stag-lbtest"
+          [32m+[0m[0m "owners"                = "hr-lbtest"
+          [32m+[0m[0m "terraform-aws-modules" = "alb"
+        }
+      [32m+[0m[0m tags_all     = {
+          [32m+[0m[0m "environment"           = "stag-lbtest"
+          [32m+[0m[0m "owners"                = "hr-lbtest"
+          [32m+[0m[0m "terraform-aws-modules" = "alb"
+        }
+
+      [32m+[0m[0m action {
+          [32m+[0m[0m order = (known after apply)
+          [32m+[0m[0m type  = "forward"
+
+          [32m+[0m[0m forward {
+              [32m+[0m[0m stickiness {
+                  [32m+[0m[0m duration = 3600
+                  [32m+[0m[0m enabled  = true
+                }
+              [32m+[0m[0m target_group {
+                  [32m+[0m[0m arn    = (known after apply)
+                  [32m+[0m[0m weight = 1
+                }
+            }
+        }
+
+      [32m+[0m[0m condition {
+          [32m+[0m[0m path_pattern {
+              [32m+[0m[0m values = [
+                  [32m+[0m[0m "/app2*",
+                ]
+            }
+        }
+    }
+
+[1m  # module.alb.aws_lb_target_group.this["mytg1"][0m will be created
+[0m  [32m+[0m[0m resource "aws_lb_target_group" "this" {
+      [32m+[0m[0m arn                                = (known after apply)
+      [32m+[0m[0m arn_suffix                         = (known after apply)
+      [32m+[0m[0m connection_termination             = (known after apply)
+      [32m+[0m[0m deregistration_delay               = "10"
+      [32m+[0m[0m id                                 = (known after apply)
+      [32m+[0m[0m ip_address_type                    = (known after apply)
+      [32m+[0m[0m lambda_multi_value_headers_enabled = false
+      [32m+[0m[0m load_balancing_algorithm_type      = (known after apply)
+      [32m+[0m[0m load_balancing_anomaly_mitigation  = (known after apply)
+      [32m+[0m[0m load_balancing_cross_zone_enabled  = "false"
+      [32m+[0m[0m name                               = (known after apply)
+      [32m+[0m[0m name_prefix                        = "mytg1-"
+      [32m+[0m[0m port                               = 80
+      [32m+[0m[0m preserve_client_ip                 = (known after apply)
+      [32m+[0m[0m protocol                           = "HTTP"
+      [32m+[0m[0m protocol_version                   = "HTTP1"
+      [32m+[0m[0m proxy_protocol_v2                  = false
+      [32m+[0m[0m slow_start                         = 0
+      [32m+[0m[0m tags                               = {
+          [32m+[0m[0m "environment"           = "stag-lbtest"
+          [32m+[0m[0m "owners"                = "hr-lbtest"
+          [32m+[0m[0m "terraform-aws-modules" = "alb"
+        }
+      [32m+[0m[0m tags_all                           = {
+          [32m+[0m[0m "environment"           = "stag-lbtest"
+          [32m+[0m[0m "owners"                = "hr-lbtest"
+          [32m+[0m[0m "terraform-aws-modules" = "alb"
+        }
+      [32m+[0m[0m target_type                        = "instance"
+      [32m+[0m[0m vpc_id                             = (known after apply)
+
+      [32m+[0m[0m health_check {
+          [32m+[0m[0m enabled             = true
+          [32m+[0m[0m healthy_threshold   = 3
+          [32m+[0m[0m interval            = 30
+          [32m+[0m[0m matcher             = "200-399"
+          [32m+[0m[0m path                = "/app1/index.html"
+          [32m+[0m[0m port                = "traffic-port"
+          [32m+[0m[0m protocol            = "HTTP"
+          [32m+[0m[0m timeout             = 6
+          [32m+[0m[0m unhealthy_threshold = 3
+        }
+    }
+
+[1m  # module.alb.aws_lb_target_group.this["mytg2"][0m will be created
+[0m  [32m+[0m[0m resource "aws_lb_target_group" "this" {
+      [32m+[0m[0m arn                                = (known after apply)
+      [32m+[0m[0m arn_suffix                         = (known after apply)
+      [32m+[0m[0m connection_termination             = (known after apply)
+      [32m+[0m[0m deregistration_delay               = "10"
+      [32m+[0m[0m id                                 = (known after apply)
+      [32m+[0m[0m ip_address_type                    = (known after apply)
+      [32m+[0m[0m lambda_multi_value_headers_enabled = false
+      [32m+[0m[0m load_balancing_algorithm_type      = (known after apply)
+      [32m+[0m[0m load_balancing_anomaly_mitigation  = (known after apply)
+      [32m+[0m[0m load_balancing_cross_zone_enabled  = "false"
+      [32m+[0m[0m name                               = (known after apply)
+      [32m+[0m[0m name_prefix                        = "mytg2-"
+      [32m+[0m[0m port                               = 80
+      [32m+[0m[0m preserve_client_ip                 = (known after apply)
+      [32m+[0m[0m protocol                           = "HTTP"
+      [32m+[0m[0m protocol_version                   = "HTTP1"
+      [32m+[0m[0m proxy_protocol_v2                  = false
+      [32m+[0m[0m slow_start                         = 0
+      [32m+[0m[0m tags                               = {
+          [32m+[0m[0m "environment"           = "stag-lbtest"
+          [32m+[0m[0m "owners"                = "hr-lbtest"
+          [32m+[0m[0m "terraform-aws-modules" = "alb"
+        }
+      [32m+[0m[0m tags_all                           = {
+          [32m+[0m[0m "environment"           = "stag-lbtest"
+          [32m+[0m[0m "owners"                = "hr-lbtest"
+          [32m+[0m[0m "terraform-aws-modules" = "alb"
+        }
+      [32m+[0m[0m target_type                        = "instance"
+      [32m+[0m[0m vpc_id                             = (known after apply)
+
+      [32m+[0m[0m health_check {
+          [32m+[0m[0m enabled             = true
+          [32m+[0m[0m healthy_threshold   = 3
+          [32m+[0m[0m interval            = 30
+          [32m+[0m[0m matcher             = "200-399"
+          [32m+[0m[0m path                = "/app2/index.html"
+          [32m+[0m[0m port                = "traffic-port"
+          [32m+[0m[0m protocol            = "HTTP"
+          [32m+[0m[0m timeout             = 6
+          [32m+[0m[0m unhealthy_threshold = 3
+        }
+    }
+
+[1m  # module.alb.aws_security_group.this[0][0m will be created
+[0m  [32m+[0m[0m resource "aws_security_group" "this" {
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m description            = "Security group for hr-lbtest-stag-lbtest-alb application load balancer"
+      [32m+[0m[0m egress                 = (known after apply)
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m ingress                = (known after apply)
+      [32m+[0m[0m name                   = (known after apply)
+      [32m+[0m[0m name_prefix            = "hr-lbtest-stag-lbtest-alb-"
+      [32m+[0m[0m owner_id               = (known after apply)
+      [32m+[0m[0m revoke_rules_on_delete = false
+      [32m+[0m[0m tags                   = {
+          [32m+[0m[0m "environment"           = "stag-lbtest"
+          [32m+[0m[0m "owners"                = "hr-lbtest"
+          [32m+[0m[0m "terraform-aws-modules" = "alb"
+        }
+      [32m+[0m[0m tags_all               = {
+          [32m+[0m[0m "environment"           = "stag-lbtest"
+          [32m+[0m[0m "owners"                = "hr-lbtest"
+          [32m+[0m[0m "terraform-aws-modules" = "alb"
+        }
+      [32m+[0m[0m vpc_id                 = (known after apply)
+    }
+
+[1m  # module.ec2_private_app1["0"].data.aws_partition.current[0m will be read during apply
+  # (depends on a resource or a module with changes pending)
+[0m [36m<=[0m[0m data "aws_partition" "current" {
+      [32m+[0m[0m dns_suffix         = (known after apply)
+      [32m+[0m[0m id                 = (known after apply)
+      [32m+[0m[0m partition          = (known after apply)
+      [32m+[0m[0m reverse_dns_prefix = (known after apply)
+    }
+
+[1m  # module.ec2_private_app1["0"].aws_instance.this[0][0m will be created
+[0m  [32m+[0m[0m resource "aws_instance" "this" {
+      [32m+[0m[0m ami                                  = "ami-03c951bbe993ea087"
+      [32m+[0m[0m arn                                  = (known after apply)
+      [32m+[0m[0m associate_public_ip_address          = (known after apply)
+      [32m+[0m[0m availability_zone                    = (known after apply)
+      [32m+[0m[0m cpu_core_count                       = (known after apply)
+      [32m+[0m[0m cpu_threads_per_core                 = (known after apply)
+      [32m+[0m[0m disable_api_stop                     = (known after apply)
+      [32m+[0m[0m disable_api_termination              = (known after apply)
+      [32m+[0m[0m ebs_optimized                        = (known after apply)
+      [32m+[0m[0m get_password_data                    = false
+      [32m+[0m[0m host_id                              = (known after apply)
+      [32m+[0m[0m host_resource_group_arn              = (known after apply)
+      [32m+[0m[0m iam_instance_profile                 = (known after apply)
+      [32m+[0m[0m id                                   = (known after apply)
+      [32m+[0m[0m instance_initiated_shutdown_behavior = (known after apply)
+      [32m+[0m[0m instance_lifecycle                   = (known after apply)
+      [32m+[0m[0m instance_state                       = (known after apply)
+      [32m+[0m[0m instance_type                        = "t3.micro"
+      [32m+[0m[0m ipv6_address_count                   = (known after apply)
+      [32m+[0m[0m ipv6_addresses                       = (known after apply)
+      [32m+[0m[0m key_name                             = "demo1_ec2"
+      [32m+[0m[0m monitoring                           = (known after apply)
+      [32m+[0m[0m outpost_arn                          = (known after apply)
+      [32m+[0m[0m password_data                        = (known after apply)
+      [32m+[0m[0m placement_group                      = (known after apply)
+      [32m+[0m[0m placement_partition_number           = (known after apply)
+      [32m+[0m[0m primary_network_interface_id         = (known after apply)
+      [32m+[0m[0m private_dns                          = (known after apply)
+      [32m+[0m[0m private_ip                           = (known after apply)
+      [32m+[0m[0m public_dns                           = (known after apply)
+      [32m+[0m[0m public_ip                            = (known after apply)
+      [32m+[0m[0m secondary_private_ips                = (known after apply)
+      [32m+[0m[0m security_groups                      = (known after apply)
+      [32m+[0m[0m source_dest_check                    = true
+      [32m+[0m[0m spot_instance_request_id             = (known after apply)
+      [32m+[0m[0m subnet_id                            = (known after apply)
+      [32m+[0m[0m tags                                 = {
+          [32m+[0m[0m "Name"        = "stag-lbtest-vm"
+          [32m+[0m[0m "environment" = "stag-lbtest"
+          [32m+[0m[0m "owners"      = "hr-lbtest"
+        }
+      [32m+[0m[0m tags_all                             = {
+          [32m+[0m[0m "Name"        = "stag-lbtest-vm"
+          [32m+[0m[0m "environment" = "stag-lbtest"
+          [32m+[0m[0m "owners"      = "hr-lbtest"
+        }
+      [32m+[0m[0m tenancy                              = (known after apply)
+      [32m+[0m[0m user_data                            = "d337bb08203efb4bbc4b00225067ee684bddeefc"
+      [32m+[0m[0m user_data_base64                     = (known after apply)
+      [32m+[0m[0m user_data_replace_on_change          = false
+      [32m+[0m[0m volume_tags                          = {
+          [32m+[0m[0m "Name" = "stag-lbtest-vm"
+        }
+      [32m+[0m[0m vpc_security_group_ids               = (known after apply)
+
+      [32m+[0m[0m credit_specification {}
+
+      [32m+[0m[0m enclave_options {
+          [32m+[0m[0m enabled = (known after apply)
+        }
+
+      [32m+[0m[0m metadata_options {
+          [32m+[0m[0m http_endpoint               = "enabled"
+          [32m+[0m[0m http_protocol_ipv6          = "disabled"
+          [32m+[0m[0m http_put_response_hop_limit = 1
+          [32m+[0m[0m http_tokens                 = "optional"
+          [32m+[0m[0m instance_metadata_tags      = (known after apply)
+        }
+
+      [32m+[0m[0m timeouts {}
+    }
+
+[1m  # module.ec2_private_app1["1"].data.aws_partition.current[0m will be read during apply
+  # (depends on a resource or a module with changes pending)
+[0m [36m<=[0m[0m data "aws_partition" "current" {
+      [32m+[0m[0m dns_suffix         = (known after apply)
+      [32m+[0m[0m id                 = (known after apply)
+      [32m+[0m[0m partition          = (known after apply)
+      [32m+[0m[0m reverse_dns_prefix = (known after apply)
+    }
+
+[1m  # module.ec2_private_app1["1"].aws_instance.this[0][0m will be created
+[0m  [32m+[0m[0m resource "aws_instance" "this" {
+      [32m+[0m[0m ami                                  = "ami-03c951bbe993ea087"
+      [32m+[0m[0m arn                                  = (known after apply)
+      [32m+[0m[0m associate_public_ip_address          = (known after apply)
+      [32m+[0m[0m availability_zone                    = (known after apply)
+      [32m+[0m[0m cpu_core_count                       = (known after apply)
+      [32m+[0m[0m cpu_threads_per_core                 = (known after apply)
+      [32m+[0m[0m disable_api_stop                     = (known after apply)
+      [32m+[0m[0m disable_api_termination              = (known after apply)
+      [32m+[0m[0m ebs_optimized                        = (known after apply)
+      [32m+[0m[0m get_password_data                    = false
+      [32m+[0m[0m host_id                              = (known after apply)
+      [32m+[0m[0m host_resource_group_arn              = (known after apply)
+      [32m+[0m[0m iam_instance_profile                 = (known after apply)
+      [32m+[0m[0m id                                   = (known after apply)
+      [32m+[0m[0m instance_initiated_shutdown_behavior = (known after apply)
+      [32m+[0m[0m instance_lifecycle                   = (known after apply)
+      [32m+[0m[0m instance_state                       = (known after apply)
+      [32m+[0m[0m instance_type                        = "t3.micro"
+      [32m+[0m[0m ipv6_address_count                   = (known after apply)
+      [32m+[0m[0m ipv6_addresses                       = (known after apply)
+      [32m+[0m[0m key_name                             = "demo1_ec2"
+      [32m+[0m[0m monitoring                           = (known after apply)
+      [32m+[0m[0m outpost_arn                          = (known after apply)
+      [32m+[0m[0m password_data                        = (known after apply)
+      [32m+[0m[0m placement_group                      = (known after apply)
+      [32m+[0m[0m placement_partition_number           = (known after apply)
+      [32m+[0m[0m primary_network_interface_id         = (known after apply)
+      [32m+[0m[0m private_dns                          = (known after apply)
+      [32m+[0m[0m private_ip                           = (known after apply)
+      [32m+[0m[0m public_dns                           = (known after apply)
+      [32m+[0m[0m public_ip                            = (known after apply)
+      [32m+[0m[0m secondary_private_ips                = (known after apply)
+      [32m+[0m[0m security_groups                      = (known after apply)
+      [32m+[0m[0m source_dest_check                    = true
+      [32m+[0m[0m spot_instance_request_id             = (known after apply)
+      [32m+[0m[0m subnet_id                            = (known after apply)
+      [32m+[0m[0m tags                                 = {
+          [32m+[0m[0m "Name"        = "stag-lbtest-vm"
+          [32m+[0m[0m "environment" = "stag-lbtest"
+          [32m+[0m[0m "owners"      = "hr-lbtest"
+        }
+      [32m+[0m[0m tags_all                             = {
+          [32m+[0m[0m "Name"        = "stag-lbtest-vm"
+          [32m+[0m[0m "environment" = "stag-lbtest"
+          [32m+[0m[0m "owners"      = "hr-lbtest"
+        }
+      [32m+[0m[0m tenancy                              = (known after apply)
+      [32m+[0m[0m user_data                            = "d337bb08203efb4bbc4b00225067ee684bddeefc"
+      [32m+[0m[0m user_data_base64                     = (known after apply)
+      [32m+[0m[0m user_data_replace_on_change          = false
+      [32m+[0m[0m volume_tags                          = {
+          [32m+[0m[0m "Name" = "stag-lbtest-vm"
+        }
+      [32m+[0m[0m vpc_security_group_ids               = (known after apply)
+
+      [32m+[0m[0m credit_specification {}
+
+      [32m+[0m[0m enclave_options {
+          [32m+[0m[0m enabled = (known after apply)
+        }
+
+      [32m+[0m[0m metadata_options {
+          [32m+[0m[0m http_endpoint               = "enabled"
+          [32m+[0m[0m http_protocol_ipv6          = "disabled"
+          [32m+[0m[0m http_put_response_hop_limit = 1
+          [32m+[0m[0m http_tokens                 = "optional"
+          [32m+[0m[0m instance_metadata_tags      = (known after apply)
+        }
+
+      [32m+[0m[0m timeouts {}
+    }
+
+[1m  # module.ec2_private_app2["0"].data.aws_partition.current[0m will be read during apply
+  # (depends on a resource or a module with changes pending)
+[0m [36m<=[0m[0m data "aws_partition" "current" {
+      [32m+[0m[0m dns_suffix         = (known after apply)
+      [32m+[0m[0m id                 = (known after apply)
+      [32m+[0m[0m partition          = (known after apply)
+      [32m+[0m[0m reverse_dns_prefix = (known after apply)
+    }
+
+[1m  # module.ec2_private_app2["0"].aws_instance.this[0][0m will be created
+[0m  [32m+[0m[0m resource "aws_instance" "this" {
+      [32m+[0m[0m ami                                  = "ami-03c951bbe993ea087"
+      [32m+[0m[0m arn                                  = (known after apply)
+      [32m+[0m[0m associate_public_ip_address          = (known after apply)
+      [32m+[0m[0m availability_zone                    = (known after apply)
+      [32m+[0m[0m cpu_core_count                       = (known after apply)
+      [32m+[0m[0m cpu_threads_per_core                 = (known after apply)
+      [32m+[0m[0m disable_api_stop                     = (known after apply)
+      [32m+[0m[0m disable_api_termination              = (known after apply)
+      [32m+[0m[0m ebs_optimized                        = (known after apply)
+      [32m+[0m[0m get_password_data                    = false
+      [32m+[0m[0m host_id                              = (known after apply)
+      [32m+[0m[0m host_resource_group_arn              = (known after apply)
+      [32m+[0m[0m iam_instance_profile                 = (known after apply)
+      [32m+[0m[0m id                                   = (known after apply)
+      [32m+[0m[0m instance_initiated_shutdown_behavior = (known after apply)
+      [32m+[0m[0m instance_lifecycle                   = (known after apply)
+      [32m+[0m[0m instance_state                       = (known after apply)
+      [32m+[0m[0m instance_type                        = "t3.micro"
+      [32m+[0m[0m ipv6_address_count                   = (known after apply)
+      [32m+[0m[0m ipv6_addresses                       = (known after apply)
+      [32m+[0m[0m key_name                             = "demo1_ec2"
+      [32m+[0m[0m monitoring                           = (known after apply)
+      [32m+[0m[0m outpost_arn                          = (known after apply)
+      [32m+[0m[0m password_data                        = (known after apply)
+      [32m+[0m[0m placement_group                      = (known after apply)
+      [32m+[0m[0m placement_partition_number           = (known after apply)
+      [32m+[0m[0m primary_network_interface_id         = (known after apply)
+      [32m+[0m[0m private_dns                          = (known after apply)
+      [32m+[0m[0m private_ip                           = (known after apply)
+      [32m+[0m[0m public_dns                           = (known after apply)
+      [32m+[0m[0m public_ip                            = (known after apply)
+      [32m+[0m[0m secondary_private_ips                = (known after apply)
+      [32m+[0m[0m security_groups                      = (known after apply)
+      [32m+[0m[0m source_dest_check                    = true
+      [32m+[0m[0m spot_instance_request_id             = (known after apply)
+      [32m+[0m[0m subnet_id                            = (known after apply)
+      [32m+[0m[0m tags                                 = {
+          [32m+[0m[0m "Name"        = "stag-lbtest-vm"
+          [32m+[0m[0m "environment" = "stag-lbtest"
+          [32m+[0m[0m "owners"      = "hr-lbtest"
+        }
+      [32m+[0m[0m tags_all                             = {
+          [32m+[0m[0m "Name"        = "stag-lbtest-vm"
+          [32m+[0m[0m "environment" = "stag-lbtest"
+          [32m+[0m[0m "owners"      = "hr-lbtest"
+        }
+      [32m+[0m[0m tenancy                              = (known after apply)
+      [32m+[0m[0m user_data                            = "15dc1bd88d7ed98ef49e7161416e30cff373bf2d"
+      [32m+[0m[0m user_data_base64                     = (known after apply)
+      [32m+[0m[0m user_data_replace_on_change          = false
+      [32m+[0m[0m volume_tags                          = {
+          [32m+[0m[0m "Name" = "stag-lbtest-vm"
+        }
+      [32m+[0m[0m vpc_security_group_ids               = (known after apply)
+
+      [32m+[0m[0m credit_specification {}
+
+      [32m+[0m[0m enclave_options {
+          [32m+[0m[0m enabled = (known after apply)
+        }
+
+      [32m+[0m[0m metadata_options {
+          [32m+[0m[0m http_endpoint               = "enabled"
+          [32m+[0m[0m http_protocol_ipv6          = "disabled"
+          [32m+[0m[0m http_put_response_hop_limit = 1
+          [32m+[0m[0m http_tokens                 = "optional"
+          [32m+[0m[0m instance_metadata_tags      = (known after apply)
+        }
+
+      [32m+[0m[0m timeouts {}
+    }
+
+[1m  # module.ec2_private_app2["1"].data.aws_partition.current[0m will be read during apply
+  # (depends on a resource or a module with changes pending)
+[0m [36m<=[0m[0m data "aws_partition" "current" {
+      [32m+[0m[0m dns_suffix         = (known after apply)
+      [32m+[0m[0m id                 = (known after apply)
+      [32m+[0m[0m partition          = (known after apply)
+      [32m+[0m[0m reverse_dns_prefix = (known after apply)
+    }
+
+[1m  # module.ec2_private_app2["1"].aws_instance.this[0][0m will be created
+[0m  [32m+[0m[0m resource "aws_instance" "this" {
+      [32m+[0m[0m ami                                  = "ami-03c951bbe993ea087"
+      [32m+[0m[0m arn                                  = (known after apply)
+      [32m+[0m[0m associate_public_ip_address          = (known after apply)
+      [32m+[0m[0m availability_zone                    = (known after apply)
+      [32m+[0m[0m cpu_core_count                       = (known after apply)
+      [32m+[0m[0m cpu_threads_per_core                 = (known after apply)
+      [32m+[0m[0m disable_api_stop                     = (known after apply)
+      [32m+[0m[0m disable_api_termination              = (known after apply)
+      [32m+[0m[0m ebs_optimized                        = (known after apply)
+      [32m+[0m[0m get_password_data                    = false
+      [32m+[0m[0m host_id                              = (known after apply)
+      [32m+[0m[0m host_resource_group_arn              = (known after apply)
+      [32m+[0m[0m iam_instance_profile                 = (known after apply)
+      [32m+[0m[0m id                                   = (known after apply)
+      [32m+[0m[0m instance_initiated_shutdown_behavior = (known after apply)
+      [32m+[0m[0m instance_lifecycle                   = (known after apply)
+      [32m+[0m[0m instance_state                       = (known after apply)
+      [32m+[0m[0m instance_type                        = "t3.micro"
+      [32m+[0m[0m ipv6_address_count                   = (known after apply)
+      [32m+[0m[0m ipv6_addresses                       = (known after apply)
+      [32m+[0m[0m key_name                             = "demo1_ec2"
+      [32m+[0m[0m monitoring                           = (known after apply)
+      [32m+[0m[0m outpost_arn                          = (known after apply)
+      [32m+[0m[0m password_data                        = (known after apply)
+      [32m+[0m[0m placement_group                      = (known after apply)
+      [32m+[0m[0m placement_partition_number           = (known after apply)
+      [32m+[0m[0m primary_network_interface_id         = (known after apply)
+      [32m+[0m[0m private_dns                          = (known after apply)
+      [32m+[0m[0m private_ip                           = (known after apply)
+      [32m+[0m[0m public_dns                           = (known after apply)
+      [32m+[0m[0m public_ip                            = (known after apply)
+      [32m+[0m[0m secondary_private_ips                = (known after apply)
+      [32m+[0m[0m security_groups                      = (known after apply)
+      [32m+[0m[0m source_dest_check                    = true
+      [32m+[0m[0m spot_instance_request_id             = (known after apply)
+      [32m+[0m[0m subnet_id                            = (known after apply)
+      [32m+[0m[0m tags                                 = {
+          [32m+[0m[0m "Name"        = "stag-lbtest-vm"
+          [32m+[0m[0m "environment" = "stag-lbtest"
+          [32m+[0m[0m "owners"      = "hr-lbtest"
+        }
+      [32m+[0m[0m tags_all                             = {
+          [32m+[0m[0m "Name"        = "stag-lbtest-vm"
+          [32m+[0m[0m "environment" = "stag-lbtest"
+          [32m+[0m[0m "owners"      = "hr-lbtest"
+        }
+      [32m+[0m[0m tenancy                              = (known after apply)
+      [32m+[0m[0m user_data                            = "15dc1bd88d7ed98ef49e7161416e30cff373bf2d"
+      [32m+[0m[0m user_data_base64                     = (known after apply)
+      [32m+[0m[0m user_data_replace_on_change          = false
+      [32m+[0m[0m volume_tags                          = {
+          [32m+[0m[0m "Name" = "stag-lbtest-vm"
+        }
+      [32m+[0m[0m vpc_security_group_ids               = (known after apply)
+
+      [32m+[0m[0m credit_specification {}
+
+      [32m+[0m[0m enclave_options {
+          [32m+[0m[0m enabled = (known after apply)
+        }
+
+      [32m+[0m[0m metadata_options {
+          [32m+[0m[0m http_endpoint               = "enabled"
+          [32m+[0m[0m http_protocol_ipv6          = "disabled"
+          [32m+[0m[0m http_put_response_hop_limit = 1
+          [32m+[0m[0m http_tokens                 = "optional"
+          [32m+[0m[0m instance_metadata_tags      = (known after apply)
+        }
+
+      [32m+[0m[0m timeouts {}
+    }
+
+[1m  # module.ec2_public.aws_instance.this[0][0m will be created
+[0m  [32m+[0m[0m resource "aws_instance" "this" {
+      [32m+[0m[0m ami                                  = "ami-03c951bbe993ea087"
+      [32m+[0m[0m arn                                  = (known after apply)
+      [32m+[0m[0m associate_public_ip_address          = (known after apply)
+      [32m+[0m[0m availability_zone                    = (known after apply)
+      [32m+[0m[0m cpu_core_count                       = (known after apply)
+      [32m+[0m[0m cpu_threads_per_core                 = (known after apply)
+      [32m+[0m[0m disable_api_stop                     = (known after apply)
+      [32m+[0m[0m disable_api_termination              = (known after apply)
+      [32m+[0m[0m ebs_optimized                        = (known after apply)
+      [32m+[0m[0m get_password_data                    = false
+      [32m+[0m[0m host_id                              = (known after apply)
+      [32m+[0m[0m host_resource_group_arn              = (known after apply)
+      [32m+[0m[0m iam_instance_profile                 = (known after apply)
+      [32m+[0m[0m id                                   = (known after apply)
+      [32m+[0m[0m instance_initiated_shutdown_behavior = (known after apply)
+      [32m+[0m[0m instance_lifecycle                   = (known after apply)
+      [32m+[0m[0m instance_state                       = (known after apply)
+      [32m+[0m[0m instance_type                        = "t3.micro"
+      [32m+[0m[0m ipv6_address_count                   = (known after apply)
+      [32m+[0m[0m ipv6_addresses                       = (known after apply)
+      [32m+[0m[0m key_name                             = "demo1_ec2"
+      [32m+[0m[0m monitoring                           = (known after apply)
+      [32m+[0m[0m outpost_arn                          = (known after apply)
+      [32m+[0m[0m password_data                        = (known after apply)
+      [32m+[0m[0m placement_group                      = (known after apply)
+      [32m+[0m[0m placement_partition_number           = (known after apply)
+      [32m+[0m[0m primary_network_interface_id         = (known after apply)
+      [32m+[0m[0m private_dns                          = (known after apply)
+      [32m+[0m[0m private_ip                           = (known after apply)
+      [32m+[0m[0m public_dns                           = (known after apply)
+      [32m+[0m[0m public_ip                            = (known after apply)
+      [32m+[0m[0m secondary_private_ips                = (known after apply)
+      [32m+[0m[0m security_groups                      = (known after apply)
+      [32m+[0m[0m source_dest_check                    = true
+      [32m+[0m[0m spot_instance_request_id             = (known after apply)
+      [32m+[0m[0m subnet_id                            = (known after apply)
+      [32m+[0m[0m tags                                 = {
+          [32m+[0m[0m "Name"        = "stag-lbtest-BastionHost"
+          [32m+[0m[0m "environment" = "stag-lbtest"
+          [32m+[0m[0m "owners"      = "hr-lbtest"
+        }
+      [32m+[0m[0m tags_all                             = {
+          [32m+[0m[0m "Name"        = "stag-lbtest-BastionHost"
+          [32m+[0m[0m "environment" = "stag-lbtest"
+          [32m+[0m[0m "owners"      = "hr-lbtest"
+        }
+      [32m+[0m[0m tenancy                              = (known after apply)
+      [32m+[0m[0m user_data                            = (known after apply)
+      [32m+[0m[0m user_data_base64                     = (known after apply)
+      [32m+[0m[0m user_data_replace_on_change          = false
+      [32m+[0m[0m volume_tags                          = {
+          [32m+[0m[0m "Name" = "stag-lbtest-BastionHost"
+        }
+      [32m+[0m[0m vpc_security_group_ids               = (known after apply)
+
+      [32m+[0m[0m credit_specification {}
+
+      [32m+[0m[0m enclave_options {
+          [32m+[0m[0m enabled = (known after apply)
+        }
+
+      [32m+[0m[0m metadata_options {
+          [32m+[0m[0m http_endpoint               = "enabled"
+          [32m+[0m[0m http_protocol_ipv6          = "disabled"
+          [32m+[0m[0m http_put_response_hop_limit = 1
+          [32m+[0m[0m http_tokens                 = "optional"
+          [32m+[0m[0m instance_metadata_tags      = (known after apply)
+        }
+
+      [32m+[0m[0m timeouts {}
+    }
+
+[1m  # module.loadbalancer_sg.aws_security_group.this_name_prefix[0][0m will be created
+[0m  [32m+[0m[0m resource "aws_security_group" "this_name_prefix" {
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m description            = "Security Group with HTTP open for entire Internet (IPv4 CIDR), egress ports are all world open"
+      [32m+[0m[0m egress                 = (known after apply)
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m ingress                = (known after apply)
+      [32m+[0m[0m name                   = (known after apply)
+      [32m+[0m[0m name_prefix            = "loadbalancer-sg-"
+      [32m+[0m[0m owner_id               = (known after apply)
+      [32m+[0m[0m revoke_rules_on_delete = false
+      [32m+[0m[0m tags                   = {
+          [32m+[0m[0m "Name"        = "loadbalancer-sg"
+          [32m+[0m[0m "environment" = "stag-lbtest"
+          [32m+[0m[0m "owners"      = "hr-lbtest"
+        }
+      [32m+[0m[0m tags_all               = {
+          [32m+[0m[0m "Name"        = "loadbalancer-sg"
+          [32m+[0m[0m "environment" = "stag-lbtest"
+          [32m+[0m[0m "owners"      = "hr-lbtest"
+        }
+      [32m+[0m[0m vpc_id                 = (known after apply)
+
+      [32m+[0m[0m timeouts {
+          [32m+[0m[0m create = "10m"
+          [32m+[0m[0m delete = "15m"
+        }
+    }
+
+[1m  # module.loadbalancer_sg.aws_security_group_rule.egress_rules[0][0m will be created
+[0m  [32m+[0m[0m resource "aws_security_group_rule" "egress_rules" {
+      [32m+[0m[0m cidr_blocks              = [
+          [32m+[0m[0m "0.0.0.0/0",
+        ]
+      [32m+[0m[0m description              = "All protocols"
+      [32m+[0m[0m from_port                = -1
+      [32m+[0m[0m id                       = (known after apply)
+      [32m+[0m[0m ipv6_cidr_blocks         = [
+          [32m+[0m[0m "::/0",
+        ]
+      [32m+[0m[0m prefix_list_ids          = []
+      [32m+[0m[0m protocol                 = "-1"
+      [32m+[0m[0m security_group_id        = (known after apply)
+      [32m+[0m[0m security_group_rule_id   = (known after apply)
+      [32m+[0m[0m self                     = false
+      [32m+[0m[0m source_security_group_id = (known after apply)
+      [32m+[0m[0m to_port                  = -1
+      [32m+[0m[0m type                     = "egress"
+    }
+
+[1m  # module.loadbalancer_sg.aws_security_group_rule.ingress_rules[0][0m will be created
+[0m  [32m+[0m[0m resource "aws_security_group_rule" "ingress_rules" {
+      [32m+[0m[0m cidr_blocks              = [
+          [32m+[0m[0m "0.0.0.0/0",
+        ]
+      [32m+[0m[0m description              = "HTTP"
+      [32m+[0m[0m from_port                = 80
+      [32m+[0m[0m id                       = (known after apply)
+      [32m+[0m[0m ipv6_cidr_blocks         = []
+      [32m+[0m[0m prefix_list_ids          = []
+      [32m+[0m[0m protocol                 = "tcp"
+      [32m+[0m[0m security_group_id        = (known after apply)
+      [32m+[0m[0m security_group_rule_id   = (known after apply)
+      [32m+[0m[0m self                     = false
+      [32m+[0m[0m source_security_group_id = (known after apply)
+      [32m+[0m[0m to_port                  = 80
+      [32m+[0m[0m type                     = "ingress"
+    }
+
+[1m  # module.loadbalancer_sg.aws_security_group_rule.ingress_rules[1][0m will be created
+[0m  [32m+[0m[0m resource "aws_security_group_rule" "ingress_rules" {
+      [32m+[0m[0m cidr_blocks              = [
+          [32m+[0m[0m "0.0.0.0/0",
+        ]
+      [32m+[0m[0m description              = "HTTPS"
+      [32m+[0m[0m from_port                = 443
+      [32m+[0m[0m id                       = (known after apply)
+      [32m+[0m[0m ipv6_cidr_blocks         = []
+      [32m+[0m[0m prefix_list_ids          = []
+      [32m+[0m[0m protocol                 = "tcp"
+      [32m+[0m[0m security_group_id        = (known after apply)
+      [32m+[0m[0m security_group_rule_id   = (known after apply)
+      [32m+[0m[0m self                     = false
+      [32m+[0m[0m source_security_group_id = (known after apply)
+      [32m+[0m[0m to_port                  = 443
+      [32m+[0m[0m type                     = "ingress"
+    }
+
+[1m  # module.loadbalancer_sg.aws_security_group_rule.ingress_with_cidr_blocks[0][0m will be created
+[0m  [32m+[0m[0m resource "aws_security_group_rule" "ingress_with_cidr_blocks" {
+      [32m+[0m[0m cidr_blocks              = [
+          [32m+[0m[0m "0.0.0.0/0",
+        ]
+      [32m+[0m[0m description              = "Allow Port 81 from internet"
+      [32m+[0m[0m from_port                = 81
+      [32m+[0m[0m id                       = (known after apply)
+      [32m+[0m[0m prefix_list_ids          = []
+      [32m+[0m[0m protocol                 = "tcp"
+      [32m+[0m[0m security_group_id        = (known after apply)
+      [32m+[0m[0m security_group_rule_id   = (known after apply)
+      [32m+[0m[0m self                     = false
+      [32m+[0m[0m source_security_group_id = (known after apply)
+      [32m+[0m[0m to_port                  = 81
+      [32m+[0m[0m type                     = "ingress"
+    }
+
+[1m  # module.private_sg.aws_security_group.this_name_prefix[0][0m will be created
+[0m  [32m+[0m[0m resource "aws_security_group" "this_name_prefix" {
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m description            = "Security Group with HTTP & SSH port open for entire VPC Block (IPv4 CIDR), egress ports are all world open"
+      [32m+[0m[0m egress                 = (known after apply)
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m ingress                = (known after apply)
+      [32m+[0m[0m name                   = (known after apply)
+      [32m+[0m[0m name_prefix            = "private-sg-"
+      [32m+[0m[0m owner_id               = (known after apply)
+      [32m+[0m[0m revoke_rules_on_delete = false
+      [32m+[0m[0m tags                   = {
+          [32m+[0m[0m "Name"        = "private-sg"
+          [32m+[0m[0m "environment" = "stag-lbtest"
+          [32m+[0m[0m "owners"      = "hr-lbtest"
+        }
+      [32m+[0m[0m tags_all               = {
+          [32m+[0m[0m "Name"        = "private-sg"
+          [32m+[0m[0m "environment" = "stag-lbtest"
+          [32m+[0m[0m "owners"      = "hr-lbtest"
+        }
+      [32m+[0m[0m vpc_id                 = (known after apply)
+
+      [32m+[0m[0m timeouts {
+          [32m+[0m[0m create = "10m"
+          [32m+[0m[0m delete = "15m"
+        }
+    }
+
+[1m  # module.private_sg.aws_security_group_rule.egress_rules[0][0m will be created
+[0m  [32m+[0m[0m resource "aws_security_group_rule" "egress_rules" {
+      [32m+[0m[0m cidr_blocks              = [
+          [32m+[0m[0m "0.0.0.0/0",
+        ]
+      [32m+[0m[0m description              = "All protocols"
+      [32m+[0m[0m from_port                = -1
+      [32m+[0m[0m id                       = (known after apply)
+      [32m+[0m[0m ipv6_cidr_blocks         = [
+          [32m+[0m[0m "::/0",
+        ]
+      [32m+[0m[0m prefix_list_ids          = []
+      [32m+[0m[0m protocol                 = "-1"
+      [32m+[0m[0m security_group_id        = (known after apply)
+      [32m+[0m[0m security_group_rule_id   = (known after apply)
+      [32m+[0m[0m self                     = false
+      [32m+[0m[0m source_security_group_id = (known after apply)
+      [32m+[0m[0m to_port                  = -1
+      [32m+[0m[0m type                     = "egress"
+    }
+
+[1m  # module.private_sg.aws_security_group_rule.ingress_rules[0][0m will be created
+[0m  [32m+[0m[0m resource "aws_security_group_rule" "ingress_rules" {
+      [32m+[0m[0m cidr_blocks              = [
+          [32m+[0m[0m "10.0.0.0/16",
+        ]
+      [32m+[0m[0m description              = "SSH"
+      [32m+[0m[0m from_port                = 22
+      [32m+[0m[0m id                       = (known after apply)
+      [32m+[0m[0m ipv6_cidr_blocks         = []
+      [32m+[0m[0m prefix_list_ids          = []
+      [32m+[0m[0m protocol                 = "tcp"
+      [32m+[0m[0m security_group_id        = (known after apply)
+      [32m+[0m[0m security_group_rule_id   = (known after apply)
+      [32m+[0m[0m self                     = false
+      [32m+[0m[0m source_security_group_id = (known after apply)
+      [32m+[0m[0m to_port                  = 22
+      [32m+[0m[0m type                     = "ingress"
+    }
+
+[1m  # module.private_sg.aws_security_group_rule.ingress_rules[1][0m will be created
+[0m  [32m+[0m[0m resource "aws_security_group_rule" "ingress_rules" {
+      [32m+[0m[0m cidr_blocks              = [
+          [32m+[0m[0m "10.0.0.0/16",
+        ]
+      [32m+[0m[0m description              = "HTTP"
+      [32m+[0m[0m from_port                = 80
+      [32m+[0m[0m id                       = (known after apply)
+      [32m+[0m[0m ipv6_cidr_blocks         = []
+      [32m+[0m[0m prefix_list_ids          = []
+      [32m+[0m[0m protocol                 = "tcp"
+      [32m+[0m[0m security_group_id        = (known after apply)
+      [32m+[0m[0m security_group_rule_id   = (known after apply)
+      [32m+[0m[0m self                     = false
+      [32m+[0m[0m source_security_group_id = (known after apply)
+      [32m+[0m[0m to_port                  = 80
+      [32m+[0m[0m type                     = "ingress"
+    }
+
+[1m  # module.public_bastion_sg.aws_security_group.this_name_prefix[0][0m will be created
+[0m  [32m+[0m[0m resource "aws_security_group" "this_name_prefix" {
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m description            = "Security Group with SSH port open for everybody (IPv4 CIDR), egress ports are all world open"
+      [32m+[0m[0m egress                 = (known after apply)
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m ingress                = (known after apply)
+      [32m+[0m[0m name                   = (known after apply)
+      [32m+[0m[0m name_prefix            = "public-bastion-sg-"
+      [32m+[0m[0m owner_id               = (known after apply)
+      [32m+[0m[0m revoke_rules_on_delete = false
+      [32m+[0m[0m tags                   = {
+          [32m+[0m[0m "Name"        = "public-bastion-sg"
+          [32m+[0m[0m "environment" = "stag-lbtest"
+          [32m+[0m[0m "owners"      = "hr-lbtest"
+        }
+      [32m+[0m[0m tags_all               = {
+          [32m+[0m[0m "Name"        = "public-bastion-sg"
+          [32m+[0m[0m "environment" = "stag-lbtest"
+          [32m+[0m[0m "owners"      = "hr-lbtest"
+        }
+      [32m+[0m[0m vpc_id                 = (known after apply)
+
+      [32m+[0m[0m timeouts {
+          [32m+[0m[0m create = "10m"
+          [32m+[0m[0m delete = "15m"
+        }
+    }
+
+[1m  # module.public_bastion_sg.aws_security_group_rule.egress_rules[0][0m will be created
+[0m  [32m+[0m[0m resource "aws_security_group_rule" "egress_rules" {
+      [32m+[0m[0m cidr_blocks              = [
+          [32m+[0m[0m "0.0.0.0/0",
+        ]
+      [32m+[0m[0m description              = "All protocols"
+      [32m+[0m[0m from_port                = -1
+      [32m+[0m[0m id                       = (known after apply)
+      [32m+[0m[0m ipv6_cidr_blocks         = [
+          [32m+[0m[0m "::/0",
+        ]
+      [32m+[0m[0m prefix_list_ids          = []
+      [32m+[0m[0m protocol                 = "-1"
+      [32m+[0m[0m security_group_id        = (known after apply)
+      [32m+[0m[0m security_group_rule_id   = (known after apply)
+      [32m+[0m[0m self                     = false
+      [32m+[0m[0m source_security_group_id = (known after apply)
+      [32m+[0m[0m to_port                  = -1
+      [32m+[0m[0m type                     = "egress"
+    }
+
+[1m  # module.public_bastion_sg.aws_security_group_rule.ingress_rules[0][0m will be created
+[0m  [32m+[0m[0m resource "aws_security_group_rule" "ingress_rules" {
+      [32m+[0m[0m cidr_blocks              = [
+          [32m+[0m[0m "0.0.0.0/0",
+        ]
+      [32m+[0m[0m description              = "SSH"
+      [32m+[0m[0m from_port                = 22
+      [32m+[0m[0m id                       = (known after apply)
+      [32m+[0m[0m ipv6_cidr_blocks         = []
+      [32m+[0m[0m prefix_list_ids          = []
+      [32m+[0m[0m protocol                 = "tcp"
+      [32m+[0m[0m security_group_id        = (known after apply)
+      [32m+[0m[0m security_group_rule_id   = (known after apply)
+      [32m+[0m[0m self                     = false
+      [32m+[0m[0m source_security_group_id = (known after apply)
+      [32m+[0m[0m to_port                  = 22
+      [32m+[0m[0m type                     = "ingress"
+    }
+
+[1m  # module.vpc.aws_db_subnet_group.database[0][0m will be created
+[0m  [32m+[0m[0m resource "aws_db_subnet_group" "database" {
+      [32m+[0m[0m arn                     = (known after apply)
+      [32m+[0m[0m description             = "Database subnet group for hr-lbtest-stag-lbtest-myvpc"
+      [32m+[0m[0m id                      = (known after apply)
+      [32m+[0m[0m name                    = "hr-lbtest-stag-lbtest-myvpc"
+      [32m+[0m[0m name_prefix             = (known after apply)
+      [32m+[0m[0m subnet_ids              = (known after apply)
+      [32m+[0m[0m supported_network_types = (known after apply)
+      [32m+[0m[0m tags                    = {
+          [32m+[0m[0m "Name"        = "hr-lbtest-stag-lbtest-myvpc"
+          [32m+[0m[0m "environment" = "stag-lbtest"
+          [32m+[0m[0m "owners"      = "hr-lbtest"
+        }
+      [32m+[0m[0m tags_all                = {
+          [32m+[0m[0m "Name"        = "hr-lbtest-stag-lbtest-myvpc"
+          [32m+[0m[0m "environment" = "stag-lbtest"
+          [32m+[0m[0m "owners"      = "hr-lbtest"
+        }
+      [32m+[0m[0m vpc_id                  = (known after apply)
+    }
+
+[1m  # module.vpc.aws_default_network_acl.this[0][0m will be created
+[0m  [32m+[0m[0m resource "aws_default_network_acl" "this" {
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m default_network_acl_id = (known after apply)
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m owner_id               = (known after apply)
+      [32m+[0m[0m tags                   = {
+          [32m+[0m[0m "Name"        = "hr-lbtest-stag-lbtest-myvpc-default"
+          [32m+[0m[0m "environment" = "stag-lbtest"
+          [32m+[0m[0m "owners"      = "hr-lbtest"
+        }
+      [32m+[0m[0m tags_all               = {
+          [32m+[0m[0m "Name"        = "hr-lbtest-stag-lbtest-myvpc-default"
+          [32m+[0m[0m "environment" = "stag-lbtest"
+          [32m+[0m[0m "owners"      = "hr-lbtest"
+        }
+      [32m+[0m[0m vpc_id                 = (known after apply)
+
+      [32m+[0m[0m egress {
+          [32m+[0m[0m action          = "allow"
+          [32m+[0m[0m from_port       = 0
+          [32m+[0m[0m ipv6_cidr_block = "::/0"
+          [32m+[0m[0m protocol        = "-1"
+          [32m+[0m[0m rule_no         = 101
+          [32m+[0m[0m to_port         = 0
+        }
+      [32m+[0m[0m egress {
+          [32m+[0m[0m action     = "allow"
+          [32m+[0m[0m cidr_block = "0.0.0.0/0"
+          [32m+[0m[0m from_port  = 0
+          [32m+[0m[0m protocol   = "-1"
+          [32m+[0m[0m rule_no    = 100
+          [32m+[0m[0m to_port    = 0
+        }
+
+      [32m+[0m[0m ingress {
+          [32m+[0m[0m action          = "allow"
+          [32m+[0m[0m from_port       = 0
+          [32m+[0m[0m ipv6_cidr_block = "::/0"
+          [32m+[0m[0m protocol        = "-1"
+          [32m+[0m[0m rule_no         = 101
+          [32m+[0m[0m to_port         = 0
+        }
+      [32m+[0m[0m ingress {
+          [32m+[0m[0m action     = "allow"
+          [32m+[0m[0m cidr_block = "0.0.0.0/0"
+          [32m+[0m[0m from_port  = 0
+          [32m+[0m[0m protocol   = "-1"
+          [32m+[0m[0m rule_no    = 100
+          [32m+[0m[0m to_port    = 0
+        }
+    }
+
+[1m  # module.vpc.aws_default_route_table.default[0][0m will be created
+[0m  [32m+[0m[0m resource "aws_default_route_table" "default" {
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m default_route_table_id = (known after apply)
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m owner_id               = (known after apply)
+      [32m+[0m[0m route                  = (known after apply)
+      [32m+[0m[0m tags                   = {
+          [32m+[0m[0m "Name"        = "hr-lbtest-stag-lbtest-myvpc-default"
+          [32m+[0m[0m "environment" = "stag-lbtest"
+          [32m+[0m[0m "owners"      = "hr-lbtest"
+        }
+      [32m+[0m[0m tags_all               = {
+          [32m+[0m[0m "Name"        = "hr-lbtest-stag-lbtest-myvpc-default"
+          [32m+[0m[0m "environment" = "stag-lbtest"
+          [32m+[0m[0m "owners"      = "hr-lbtest"
+        }
+      [32m+[0m[0m vpc_id                 = (known after apply)
+
+      [32m+[0m[0m timeouts {
+          [32m+[0m[0m create = "5m"
+          [32m+[0m[0m update = "5m"
+        }
+    }
+
+[1m  # module.vpc.aws_default_security_group.this[0][0m will be created
+[0m  [32m+[0m[0m resource "aws_default_security_group" "this" {
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m description            = (known after apply)
+      [32m+[0m[0m egress                 = (known after apply)
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m ingress                = (known after apply)
+      [32m+[0m[0m name                   = (known after apply)
+      [32m+[0m[0m name_prefix            = (known after apply)
+      [32m+[0m[0m owner_id               = (known after apply)
+      [32m+[0m[0m revoke_rules_on_delete = false
+      [32m+[0m[0m tags                   = {
+          [32m+[0m[0m "Name"        = "hr-lbtest-stag-lbtest-myvpc-default"
+          [32m+[0m[0m "environment" = "stag-lbtest"
+          [32m+[0m[0m "owners"      = "hr-lbtest"
+        }
+      [32m+[0m[0m tags_all               = {
+          [32m+[0m[0m "Name"        = "hr-lbtest-stag-lbtest-myvpc-default"
+          [32m+[0m[0m "environment" = "stag-lbtest"
+          [32m+[0m[0m "owners"      = "hr-lbtest"
+        }
+      [32m+[0m[0m vpc_id                 = (known after apply)
+    }
+
+[1m  # module.vpc.aws_eip.nat[0][0m will be created
+[0m  [32m+[0m[0m resource "aws_eip" "nat" {
+      [32m+[0m[0m allocation_id        = (known after apply)
+      [32m+[0m[0m association_id       = (known after apply)
+      [32m+[0m[0m carrier_ip           = (known after apply)
+      [32m+[0m[0m customer_owned_ip    = (known after apply)
+      [32m+[0m[0m domain               = "vpc"
+      [32m+[0m[0m id                   = (known after apply)
+      [32m+[0m[0m instance             = (known after apply)
+      [32m+[0m[0m network_border_group = (known after apply)
+      [32m+[0m[0m network_interface    = (known after apply)
+      [32m+[0m[0m private_dns          = (known after apply)
+      [32m+[0m[0m private_ip           = (known after apply)
+      [32m+[0m[0m public_dns           = (known after apply)
+      [32m+[0m[0m public_ip            = (known after apply)
+      [32m+[0m[0m public_ipv4_pool     = (known after apply)
+      [32m+[0m[0m tags                 = {
+          [32m+[0m[0m "Name"        = "hr-lbtest-stag-lbtest-myvpc-us-east-1a"
+          [32m+[0m[0m "environment" = "stag-lbtest"
+          [32m+[0m[0m "owners"      = "hr-lbtest"
+        }
+      [32m+[0m[0m tags_all             = {
+          [32m+[0m[0m "Name"        = "hr-lbtest-stag-lbtest-myvpc-us-east-1a"
+          [32m+[0m[0m "environment" = "stag-lbtest"
+          [32m+[0m[0m "owners"      = "hr-lbtest"
+        }
+      [32m+[0m[0m vpc                  = (known after apply)
+    }
+
+[1m  # module.vpc.aws_internet_gateway.this[0][0m will be created
+[0m  [32m+[0m[0m resource "aws_internet_gateway" "this" {
+      [32m+[0m[0m arn      = (known after apply)
+      [32m+[0m[0m id       = (known after apply)
+      [32m+[0m[0m owner_id = (known after apply)
+      [32m+[0m[0m tags     = {
+          [32m+[0m[0m "Name"        = "hr-lbtest-stag-lbtest-myvpc"
+          [32m+[0m[0m "environment" = "stag-lbtest"
+          [32m+[0m[0m "owners"      = "hr-lbtest"
+        }
+      [32m+[0m[0m tags_all = {
+          [32m+[0m[0m "Name"        = "hr-lbtest-stag-lbtest-myvpc"
+          [32m+[0m[0m "environment" = "stag-lbtest"
+          [32m+[0m[0m "owners"      = "hr-lbtest"
+        }
+      [32m+[0m[0m vpc_id   = (known after apply)
+    }
+
+[1m  # module.vpc.aws_nat_gateway.this[0][0m will be created
+[0m  [32m+[0m[0m resource "aws_nat_gateway" "this" {
+      [32m+[0m[0m allocation_id                      = (known after apply)
+      [32m+[0m[0m association_id                     = (known after apply)
+      [32m+[0m[0m connectivity_type                  = "public"
+      [32m+[0m[0m id                                 = (known after apply)
+      [32m+[0m[0m network_interface_id               = (known after apply)
+      [32m+[0m[0m private_ip                         = (known after apply)
+      [32m+[0m[0m public_ip                          = (known after apply)
+      [32m+[0m[0m secondary_private_ip_address_count = (known after apply)
+      [32m+[0m[0m secondary_private_ip_addresses     = (known after apply)
+      [32m+[0m[0m subnet_id                          = (known after apply)
+      [32m+[0m[0m tags                               = {
+          [32m+[0m[0m "Name"        = "hr-lbtest-stag-lbtest-myvpc-us-east-1a"
+          [32m+[0m[0m "environment" = "stag-lbtest"
+          [32m+[0m[0m "owners"      = "hr-lbtest"
+        }
+      [32m+[0m[0m tags_all                           = {
+          [32m+[0m[0m "Name"        = "hr-lbtest-stag-lbtest-myvpc-us-east-1a"
+          [32m+[0m[0m "environment" = "stag-lbtest"
+          [32m+[0m[0m "owners"      = "hr-lbtest"
+        }
+    }
+
+[1m  # module.vpc.aws_route.private_nat_gateway[0][0m will be created
+[0m  [32m+[0m[0m resource "aws_route" "private_nat_gateway" {
+      [32m+[0m[0m destination_cidr_block = "0.0.0.0/0"
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m instance_id            = (known after apply)
+      [32m+[0m[0m instance_owner_id      = (known after apply)
+      [32m+[0m[0m nat_gateway_id         = (known after apply)
+      [32m+[0m[0m network_interface_id   = (known after apply)
+      [32m+[0m[0m origin                 = (known after apply)
+      [32m+[0m[0m route_table_id         = (known after apply)
+      [32m+[0m[0m state                  = (known after apply)
+
+      [32m+[0m[0m timeouts {
+          [32m+[0m[0m create = "5m"
+        }
+    }
+
+[1m  # module.vpc.aws_route.public_internet_gateway[0][0m will be created
+[0m  [32m+[0m[0m resource "aws_route" "public_internet_gateway" {
+      [32m+[0m[0m destination_cidr_block = "0.0.0.0/0"
+      [32m+[0m[0m gateway_id             = (known after apply)
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m instance_id            = (known after apply)
+      [32m+[0m[0m instance_owner_id      = (known after apply)
+      [32m+[0m[0m network_interface_id   = (known after apply)
+      [32m+[0m[0m origin                 = (known after apply)
+      [32m+[0m[0m route_table_id         = (known after apply)
+      [32m+[0m[0m state                  = (known after apply)
+
+      [32m+[0m[0m timeouts {
+          [32m+[0m[0m create = "5m"
+        }
+    }
+
+[1m  # module.vpc.aws_route_table.database[0][0m will be created
+[0m  [32m+[0m[0m resource "aws_route_table" "database" {
+      [32m+[0m[0m arn              = (known after apply)
+      [32m+[0m[0m id               = (known after apply)
+      [32m+[0m[0m owner_id         = (known after apply)
+      [32m+[0m[0m propagating_vgws = (known after apply)
+      [32m+[0m[0m route            = (known after apply)
+      [32m+[0m[0m tags             = {
+          [32m+[0m[0m "Name"        = "hr-lbtest-stag-lbtest-myvpc-db"
+          [32m+[0m[0m "environment" = "stag-lbtest"
+          [32m+[0m[0m "owners"      = "hr-lbtest"
+        }
+      [32m+[0m[0m tags_all         = {
+          [32m+[0m[0m "Name"        = "hr-lbtest-stag-lbtest-myvpc-db"
+          [32m+[0m[0m "environment" = "stag-lbtest"
+          [32m+[0m[0m "owners"      = "hr-lbtest"
+        }
+      [32m+[0m[0m vpc_id           = (known after apply)
+    }
+
+[1m  # module.vpc.aws_route_table.private[0][0m will be created
+[0m  [32m+[0m[0m resource "aws_route_table" "private" {
+      [32m+[0m[0m arn              = (known after apply)
+      [32m+[0m[0m id               = (known after apply)
+      [32m+[0m[0m owner_id         = (known after apply)
+      [32m+[0m[0m propagating_vgws = (known after apply)
+      [32m+[0m[0m route            = (known after apply)
+      [32m+[0m[0m tags             = {
+          [32m+[0m[0m "Name"        = "hr-lbtest-stag-lbtest-myvpc-private"
+          [32m+[0m[0m "environment" = "stag-lbtest"
+          [32m+[0m[0m "owners"      = "hr-lbtest"
+        }
+      [32m+[0m[0m tags_all         = {
+          [32m+[0m[0m "Name"        = "hr-lbtest-stag-lbtest-myvpc-private"
+          [32m+[0m[0m "environment" = "stag-lbtest"
+          [32m+[0m[0m "owners"      = "hr-lbtest"
+        }
+      [32m+[0m[0m vpc_id           = (known after apply)
+    }
+
+[1m  # module.vpc.aws_route_table.public[0][0m will be created
+[0m  [32m+[0m[0m resource "aws_route_table" "public" {
+      [32m+[0m[0m arn              = (known after apply)
+      [32m+[0m[0m id               = (known after apply)
+      [32m+[0m[0m owner_id         = (known after apply)
+      [32m+[0m[0m propagating_vgws = (known after apply)
+      [32m+[0m[0m route            = (known after apply)
+      [32m+[0m[0m tags             = {
+          [32m+[0m[0m "Name"        = "hr-lbtest-stag-lbtest-myvpc-public"
+          [32m+[0m[0m "environment" = "stag-lbtest"
+          [32m+[0m[0m "owners"      = "hr-lbtest"
+        }
+      [32m+[0m[0m tags_all         = {
+          [32m+[0m[0m "Name"        = "hr-lbtest-stag-lbtest-myvpc-public"
+          [32m+[0m[0m "environment" = "stag-lbtest"
+          [32m+[0m[0m "owners"      = "hr-lbtest"
+        }
+      [32m+[0m[0m vpc_id           = (known after apply)
+    }
+
+[1m  # module.vpc.aws_route_table_association.database[0][0m will be created
+[0m  [32m+[0m[0m resource "aws_route_table_association" "database" {
+      [32m+[0m[0m id             = (known after apply)
+      [32m+[0m[0m route_table_id = (known after apply)
+      [32m+[0m[0m subnet_id      = (known after apply)
+    }
+
+[1m  # module.vpc.aws_route_table_association.database[1][0m will be created
+[0m  [32m+[0m[0m resource "aws_route_table_association" "database" {
+      [32m+[0m[0m id             = (known after apply)
+      [32m+[0m[0m route_table_id = (known after apply)
+      [32m+[0m[0m subnet_id      = (known after apply)
+    }
+
+[1m  # module.vpc.aws_route_table_association.private[0][0m will be created
+[0m  [32m+[0m[0m resource "aws_route_table_association" "private" {
+      [32m+[0m[0m id             = (known after apply)
+      [32m+[0m[0m route_table_id = (known after apply)
+      [32m+[0m[0m subnet_id      = (known after apply)
+    }
+
+[1m  # module.vpc.aws_route_table_association.private[1][0m will be created
+[0m  [32m+[0m[0m resource "aws_route_table_association" "private" {
+      [32m+[0m[0m id             = (known after apply)
+      [32m+[0m[0m route_table_id = (known after apply)
+      [32m+[0m[0m subnet_id      = (known after apply)
+    }
+
+[1m  # module.vpc.aws_route_table_association.public[0][0m will be created
+[0m  [32m+[0m[0m resource "aws_route_table_association" "public" {
+      [32m+[0m[0m id             = (known after apply)
+      [32m+[0m[0m route_table_id = (known after apply)
+      [32m+[0m[0m subnet_id      = (known after apply)
+    }
+
+[1m  # module.vpc.aws_route_table_association.public[1][0m will be created
+[0m  [32m+[0m[0m resource "aws_route_table_association" "public" {
+      [32m+[0m[0m id             = (known after apply)
+      [32m+[0m[0m route_table_id = (known after apply)
+      [32m+[0m[0m subnet_id      = (known after apply)
+    }
+
+[1m  # module.vpc.aws_subnet.database[0][0m will be created
+[0m  [32m+[0m[0m resource "aws_subnet" "database" {
+      [32m+[0m[0m arn                                            = (known after apply)
+      [32m+[0m[0m assign_ipv6_address_on_creation                = false
+      [32m+[0m[0m availability_zone                              = "us-east-1a"
+      [32m+[0m[0m availability_zone_id                           = (known after apply)
+      [32m+[0m[0m cidr_block                                     = "10.0.151.0/24"
+      [32m+[0m[0m enable_dns64                                   = false
+      [32m+[0m[0m enable_resource_name_dns_a_record_on_launch    = false
+      [32m+[0m[0m enable_resource_name_dns_aaaa_record_on_launch = false
+      [32m+[0m[0m id                                             = (known after apply)
+      [32m+[0m[0m ipv6_cidr_block_association_id                 = (known after apply)
+      [32m+[0m[0m ipv6_native                                    = false
+      [32m+[0m[0m map_public_ip_on_launch                        = false
+      [32m+[0m[0m owner_id                                       = (known after apply)
+      [32m+[0m[0m private_dns_hostname_type_on_launch            = (known after apply)
+      [32m+[0m[0m tags                                           = {
+          [32m+[0m[0m "Name"        = "hr-lbtest-stag-lbtest-myvpc-db-us-east-1a"
+          [32m+[0m[0m "Type"        = "Private Database Subnets"
+          [32m+[0m[0m "environment" = "stag-lbtest"
+          [32m+[0m[0m "owners"      = "hr-lbtest"
+        }
+      [32m+[0m[0m tags_all                                       = {
+          [32m+[0m[0m "Name"        = "hr-lbtest-stag-lbtest-myvpc-db-us-east-1a"
+          [32m+[0m[0m "Type"        = "Private Database Subnets"
+          [32m+[0m[0m "environment" = "stag-lbtest"
+          [32m+[0m[0m "owners"      = "hr-lbtest"
+        }
+      [32m+[0m[0m vpc_id                                         = (known after apply)
+    }
+
+[1m  # module.vpc.aws_subnet.database[1][0m will be created
+[0m  [32m+[0m[0m resource "aws_subnet" "database" {
+      [32m+[0m[0m arn                                            = (known after apply)
+      [32m+[0m[0m assign_ipv6_address_on_creation                = false
+      [32m+[0m[0m availability_zone                              = "us-east-1b"
+      [32m+[0m[0m availability_zone_id                           = (known after apply)
+      [32m+[0m[0m cidr_block                                     = "10.0.152.0/24"
+      [32m+[0m[0m enable_dns64                                   = false
+      [32m+[0m[0m enable_resource_name_dns_a_record_on_launch    = false
+      [32m+[0m[0m enable_resource_name_dns_aaaa_record_on_launch = false
+      [32m+[0m[0m id                                             = (known after apply)
+      [32m+[0m[0m ipv6_cidr_block_association_id                 = (known after apply)
+      [32m+[0m[0m ipv6_native                                    = false
+      [32m+[0m[0m map_public_ip_on_launch                        = false
+      [32m+[0m[0m owner_id                                       = (known after apply)
+      [32m+[0m[0m private_dns_hostname_type_on_launch            = (known after apply)
+      [32m+[0m[0m tags                                           = {
+          [32m+[0m[0m "Name"        = "hr-lbtest-stag-lbtest-myvpc-db-us-east-1b"
+          [32m+[0m[0m "Type"        = "Private Database Subnets"
+          [32m+[0m[0m "environment" = "stag-lbtest"
+          [32m+[0m[0m "owners"      = "hr-lbtest"
+        }
+      [32m+[0m[0m tags_all                                       = {
+          [32m+[0m[0m "Name"        = "hr-lbtest-stag-lbtest-myvpc-db-us-east-1b"
+          [32m+[0m[0m "Type"        = "Private Database Subnets"
+          [32m+[0m[0m "environment" = "stag-lbtest"
+          [32m+[0m[0m "owners"      = "hr-lbtest"
+        }
+      [32m+[0m[0m vpc_id                                         = (known after apply)
+    }
+
+[1m  # module.vpc.aws_subnet.private[0][0m will be created
+[0m  [32m+[0m[0m resource "aws_subnet" "private" {
+      [32m+[0m[0m arn                                            = (known after apply)
+      [32m+[0m[0m assign_ipv6_address_on_creation                = false
+      [32m+[0m[0m availability_zone                              = "us-east-1a"
+      [32m+[0m[0m availability_zone_id                           = (known after apply)
+      [32m+[0m[0m cidr_block                                     = "10.0.1.0/24"
+      [32m+[0m[0m enable_dns64                                   = false
+      [32m+[0m[0m enable_resource_name_dns_a_record_on_launch    = false
+      [32m+[0m[0m enable_resource_name_dns_aaaa_record_on_launch = false
+      [32m+[0m[0m id                                             = (known after apply)
+      [32m+[0m[0m ipv6_cidr_block_association_id                 = (known after apply)
+      [32m+[0m[0m ipv6_native                                    = false
+      [32m+[0m[0m map_public_ip_on_launch                        = false
+      [32m+[0m[0m owner_id                                       = (known after apply)
+      [32m+[0m[0m private_dns_hostname_type_on_launch            = (known after apply)
+      [32m+[0m[0m tags                                           = {
+          [32m+[0m[0m "Name"        = "hr-lbtest-stag-lbtest-myvpc-private-us-east-1a"
+          [32m+[0m[0m "Type"        = "Private Subnets"
+          [32m+[0m[0m "environment" = "stag-lbtest"
+          [32m+[0m[0m "owners"      = "hr-lbtest"
+        }
+      [32m+[0m[0m tags_all                                       = {
+          [32m+[0m[0m "Name"        = "hr-lbtest-stag-lbtest-myvpc-private-us-east-1a"
+          [32m+[0m[0m "Type"        = "Private Subnets"
+          [32m+[0m[0m "environment" = "stag-lbtest"
+          [32m+[0m[0m "owners"      = "hr-lbtest"
+        }
+      [32m+[0m[0m vpc_id                                         = (known after apply)
+    }
+
+[1m  # module.vpc.aws_subnet.private[1][0m will be created
+[0m  [32m+[0m[0m resource "aws_subnet" "private" {
+      [32m+[0m[0m arn                                            = (known after apply)
+      [32m+[0m[0m assign_ipv6_address_on_creation                = false
+      [32m+[0m[0m availability_zone                              = "us-east-1b"
+      [32m+[0m[0m availability_zone_id                           = (known after apply)
+      [32m+[0m[0m cidr_block                                     = "10.0.2.0/24"
+      [32m+[0m[0m enable_dns64                                   = false
+      [32m+[0m[0m enable_resource_name_dns_a_record_on_launch    = false
+      [32m+[0m[0m enable_resource_name_dns_aaaa_record_on_launch = false
+      [32m+[0m[0m id                                             = (known after apply)
+      [32m+[0m[0m ipv6_cidr_block_association_id                 = (known after apply)
+      [32m+[0m[0m ipv6_native                                    = false
+      [32m+[0m[0m map_public_ip_on_launch                        = false
+      [32m+[0m[0m owner_id                                       = (known after apply)
+      [32m+[0m[0m private_dns_hostname_type_on_launch            = (known after apply)
+      [32m+[0m[0m tags                                           = {
+          [32m+[0m[0m "Name"        = "hr-lbtest-stag-lbtest-myvpc-private-us-east-1b"
+          [32m+[0m[0m "Type"        = "Private Subnets"
+          [32m+[0m[0m "environment" = "stag-lbtest"
+          [32m+[0m[0m "owners"      = "hr-lbtest"
+        }
+      [32m+[0m[0m tags_all                                       = {
+          [32m+[0m[0m "Name"        = "hr-lbtest-stag-lbtest-myvpc-private-us-east-1b"
+          [32m+[0m[0m "Type"        = "Private Subnets"
+          [32m+[0m[0m "environment" = "stag-lbtest"
+          [32m+[0m[0m "owners"      = "hr-lbtest"
+        }
+      [32m+[0m[0m vpc_id                                         = (known after apply)
+    }
+
+[1m  # module.vpc.aws_subnet.public[0][0m will be created
+[0m  [32m+[0m[0m resource "aws_subnet" "public" {
+      [32m+[0m[0m arn                                            = (known after apply)
+      [32m+[0m[0m assign_ipv6_address_on_creation                = false
+      [32m+[0m[0m availability_zone                              = "us-east-1a"
+      [32m+[0m[0m availability_zone_id                           = (known after apply)
+      [32m+[0m[0m cidr_block                                     = "10.0.101.0/24"
+      [32m+[0m[0m enable_dns64                                   = false
+      [32m+[0m[0m enable_resource_name_dns_a_record_on_launch    = false
+      [32m+[0m[0m enable_resource_name_dns_aaaa_record_on_launch = false
+      [32m+[0m[0m id                                             = (known after apply)
+      [32m+[0m[0m ipv6_cidr_block_association_id                 = (known after apply)
+      [32m+[0m[0m ipv6_native                                    = false
+      [32m+[0m[0m map_public_ip_on_launch                        = false
+      [32m+[0m[0m owner_id                                       = (known after apply)
+      [32m+[0m[0m private_dns_hostname_type_on_launch            = (known after apply)
+      [32m+[0m[0m tags                                           = {
+          [32m+[0m[0m "Name"        = "hr-lbtest-stag-lbtest-myvpc-public-us-east-1a"
+          [32m+[0m[0m "Type"        = "Public Subnets"
+          [32m+[0m[0m "environment" = "stag-lbtest"
+          [32m+[0m[0m "owners"      = "hr-lbtest"
+        }
+      [32m+[0m[0m tags_all                                       = {
+          [32m+[0m[0m "Name"        = "hr-lbtest-stag-lbtest-myvpc-public-us-east-1a"
+          [32m+[0m[0m "Type"        = "Public Subnets"
+          [32m+[0m[0m "environment" = "stag-lbtest"
+          [32m+[0m[0m "owners"      = "hr-lbtest"
+        }
+      [32m+[0m[0m vpc_id                                         = (known after apply)
+    }
+
+[1m  # module.vpc.aws_subnet.public[1][0m will be created
+[0m  [32m+[0m[0m resource "aws_subnet" "public" {
+      [32m+[0m[0m arn                                            = (known after apply)
+      [32m+[0m[0m assign_ipv6_address_on_creation                = false
+      [32m+[0m[0m availability_zone                              = "us-east-1b"
+      [32m+[0m[0m availability_zone_id                           = (known after apply)
+      [32m+[0m[0m cidr_block                                     = "10.0.102.0/24"
+      [32m+[0m[0m enable_dns64                                   = false
+      [32m+[0m[0m enable_resource_name_dns_a_record_on_launch    = false
+      [32m+[0m[0m enable_resource_name_dns_aaaa_record_on_launch = false
+      [32m+[0m[0m id                                             = (known after apply)
+      [32m+[0m[0m ipv6_cidr_block_association_id                 = (known after apply)
+      [32m+[0m[0m ipv6_native                                    = false
+      [32m+[0m[0m map_public_ip_on_launch                        = false
+      [32m+[0m[0m owner_id                                       = (known after apply)
+      [32m+[0m[0m private_dns_hostname_type_on_launch            = (known after apply)
+      [32m+[0m[0m tags                                           = {
+          [32m+[0m[0m "Name"        = "hr-lbtest-stag-lbtest-myvpc-public-us-east-1b"
+          [32m+[0m[0m "Type"        = "Public Subnets"
+          [32m+[0m[0m "environment" = "stag-lbtest"
+          [32m+[0m[0m "owners"      = "hr-lbtest"
+        }
+      [32m+[0m[0m tags_all                                       = {
+          [32m+[0m[0m "Name"        = "hr-lbtest-stag-lbtest-myvpc-public-us-east-1b"
+          [32m+[0m[0m "Type"        = "Public Subnets"
+          [32m+[0m[0m "environment" = "stag-lbtest"
+          [32m+[0m[0m "owners"      = "hr-lbtest"
+        }
+      [32m+[0m[0m vpc_id                                         = (known after apply)
+    }
+
+[1m  # module.vpc.aws_vpc.this[0][0m will be created
+[0m  [32m+[0m[0m resource "aws_vpc" "this" {
+      [32m+[0m[0m arn                                  = (known after apply)
+      [32m+[0m[0m cidr_block                           = "10.0.0.0/16"
+      [32m+[0m[0m default_network_acl_id               = (known after apply)
+      [32m+[0m[0m default_route_table_id               = (known after apply)
+      [32m+[0m[0m default_security_group_id            = (known after apply)
+      [32m+[0m[0m dhcp_options_id                      = (known after apply)
+      [32m+[0m[0m enable_dns_hostnames                 = true
+      [32m+[0m[0m enable_dns_support                   = true
+      [32m+[0m[0m enable_network_address_usage_metrics = (known after apply)
+      [32m+[0m[0m id                                   = (known after apply)
+      [32m+[0m[0m instance_tenancy                     = "default"
+      [32m+[0m[0m ipv6_association_id                  = (known after apply)
+      [32m+[0m[0m ipv6_cidr_block                      = (known after apply)
+      [32m+[0m[0m ipv6_cidr_block_network_border_group = (known after apply)
+      [32m+[0m[0m main_route_table_id                  = (known after apply)
+      [32m+[0m[0m owner_id                             = (known after apply)
+      [32m+[0m[0m tags                                 = {
+          [32m+[0m[0m "Name"        = "hr-lbtest-stag-lbtest-myvpc"
+          [32m+[0m[0m "environment" = "stag-lbtest"
+          [32m+[0m[0m "owners"      = "hr-lbtest"
+        }
+      [32m+[0m[0m tags_all                             = {
+          [32m+[0m[0m "Name"        = "hr-lbtest-stag-lbtest-myvpc"
+          [32m+[0m[0m "environment" = "stag-lbtest"
+          [32m+[0m[0m "owners"      = "hr-lbtest"
+        }
+    }
+
+[1mPlan:[0m 60 to add, 0 to change, 0 to destroy.
+[0m
+Changes to Outputs:
+  [32m+[0m[0m acm_certificate_arn             = (known after apply)
+  [32m+[0m[0m arn                             = (known after apply)
+  [32m+[0m[0m arn_suffix                      = (known after apply)
+  [32m+[0m[0m azs                             = [
+      [32m+[0m[0m "us-east-1a",
+      [32m+[0m[0m "us-east-1b",
+    ]
+  [32m+[0m[0m dns_name                        = (known after apply)
+  [32m+[0m[0m ec2_bastion_public_instance_ids = (known after apply)
+  [32m+[0m[0m ec2_bastion_public_ip           = (known after apply)
+  [32m+[0m[0m ec2_private_app1_instance_ids   = [
+      [32m+[0m[0m (known after apply),
+      [32m+[0m[0m (known after apply),
+    ]
+  [32m+[0m[0m ec2_private_app1_ip             = [
+      [32m+[0m[0m (known after apply),
+      [32m+[0m[0m (known after apply),
+    ]
+  [32m+[0m[0m ec2_private_app2_instance_ids   = [
+      [32m+[0m[0m (known after apply),
+      [32m+[0m[0m (known after apply),
+    ]
+  [32m+[0m[0m ec2_private_app2_ip             = [
+      [32m+[0m[0m (known after apply),
+      [32m+[0m[0m (known after apply),
+    ]
+  [32m+[0m[0m id                              = (known after apply)
+  [32m+[0m[0m listener_rules                  = (sensitive value)
+  [32m+[0m[0m listeners                       = (sensitive value)
+  [32m+[0m[0m mydomain_name                   = "cdots-learning.com"
+  [32m+[0m[0m mydomain_zoneid                 = "Z0411670XJWCG63Q8LSU"
+  [32m+[0m[0m nat_public_ips                  = [
+      [32m+[0m[0m (known after apply),
+    ]
+  [32m+[0m[0m private_sg_group_id             = (known after apply)
+  [32m+[0m[0m private_sg_group_name           = (known after apply)
+  [32m+[0m[0m private_sg_group_vpc_id         = (known after apply)
+  [32m+[0m[0m private_subnets                 = [
+      [32m+[0m[0m (known after apply),
+      [32m+[0m[0m (known after apply),
+    ]
+  [32m+[0m[0m public_bastion_sg_group_id      = (known after apply)
+  [32m+[0m[0m public_bastion_sg_group_name    = (known after apply)
+  [32m+[0m[0m public_bastion_sg_group_vpc_id  = (known after apply)
+  [32m+[0m[0m public_subnets                  = [
+      [32m+[0m[0m (known after apply),
+      [32m+[0m[0m (known after apply),
+    ]
+  [32m+[0m[0m target_groups                   = {
+      [32m+[0m[0m mytg1 = {
+          [32m+[0m[0m arn                                = (known after apply)
+          [32m+[0m[0m arn_suffix                         = (known after apply)
+          [32m+[0m[0m connection_termination             = (known after apply)
+          [32m+[0m[0m deregistration_delay               = "10"
+          [32m+[0m[0m health_check                       = [
+              [32m+[0m[0m {
+                  [32m+[0m[0m enabled             = true
+                  [32m+[0m[0m healthy_threshold   = 3
+                  [32m+[0m[0m interval            = 30
+                  [32m+[0m[0m matcher             = "200-399"
+                  [32m+[0m[0m path                = "/app1/index.html"
+                  [32m+[0m[0m port                = "traffic-port"
+                  [32m+[0m[0m protocol            = "HTTP"
+                  [32m+[0m[0m timeout             = 6
+                  [32m+[0m[0m unhealthy_threshold = 3
+                },
+            ]
+          [32m+[0m[0m id                                 = (known after apply)
+          [32m+[0m[0m ip_address_type                    = (known after apply)
+          [32m+[0m[0m lambda_multi_value_headers_enabled = false
+          [32m+[0m[0m load_balancing_algorithm_type      = (known after apply)
+          [32m+[0m[0m load_balancing_anomaly_mitigation  = (known after apply)
+          [32m+[0m[0m load_balancing_cross_zone_enabled  = "false"
+          [32m+[0m[0m name                               = (known after apply)
+          [32m+[0m[0m name_prefix                        = "mytg1-"
+          [32m+[0m[0m port                               = 80
+          [32m+[0m[0m preserve_client_ip                 = (known after apply)
+          [32m+[0m[0m protocol                           = "HTTP"
+          [32m+[0m[0m protocol_version                   = "HTTP1"
+          [32m+[0m[0m proxy_protocol_v2                  = false
+          [32m+[0m[0m slow_start                         = 0
+          [32m+[0m[0m stickiness                         = (known after apply)
+          [32m+[0m[0m tags                               = {
+              [32m+[0m[0m environment           = "stag-lbtest"
+              [32m+[0m[0m owners                = "hr-lbtest"
+              [32m+[0m[0m terraform-aws-modules = "alb"
+            }
+          [32m+[0m[0m tags_all                           = {
+              [32m+[0m[0m environment           = "stag-lbtest"
+              [32m+[0m[0m owners                = "hr-lbtest"
+              [32m+[0m[0m terraform-aws-modules = "alb"
+            }
+          [32m+[0m[0m target_failover                    = (known after apply)
+          [32m+[0m[0m target_health_state                = (known after apply)
+          [32m+[0m[0m target_type                        = "instance"
+          [32m+[0m[0m vpc_id                             = (known after apply)
+        }
+      [32m+[0m[0m mytg2 = {
+          [32m+[0m[0m arn                                = (known after apply)
+          [32m+[0m[0m arn_suffix                         = (known after apply)
+          [32m+[0m[0m connection_termination             = (known after apply)
+          [32m+[0m[0m deregistration_delay               = "10"
+          [32m+[0m[0m health_check                       = [
+              [32m+[0m[0m {
+                  [32m+[0m[0m enabled             = true
+                  [32m+[0m[0m healthy_threshold   = 3
+                  [32m+[0m[0m interval            = 30
+                  [32m+[0m[0m matcher             = "200-399"
+                  [32m+[0m[0m path                = "/app2/index.html"
+                  [32m+[0m[0m port                = "traffic-port"
+                  [32m+[0m[0m protocol            = "HTTP"
+                  [32m+[0m[0m timeout             = 6
+                  [32m+[0m[0m unhealthy_threshold = 3
+                },
+            ]
+          [32m+[0m[0m id                                 = (known after apply)
+          [32m+[0m[0m ip_address_type                    = (known after apply)
+          [32m+[0m[0m lambda_multi_value_headers_enabled = false
+          [32m+[0m[0m load_balancing_algorithm_type      = (known after apply)
+          [32m+[0m[0m load_balancing_anomaly_mitigation  = (known after apply)
+          [32m+[0m[0m load_balancing_cross_zone_enabled  = "false"
+          [32m+[0m[0m name                               = (known after apply)
+          [32m+[0m[0m name_prefix                        = "mytg2-"
+          [32m+[0m[0m port                               = 80
+          [32m+[0m[0m preserve_client_ip                 = (known after apply)
+          [32m+[0m[0m protocol                           = "HTTP"
+          [32m+[0m[0m protocol_version                   = "HTTP1"
+          [32m+[0m[0m proxy_protocol_v2                  = false
+          [32m+[0m[0m slow_start                         = 0
+          [32m+[0m[0m stickiness                         = (known after apply)
+          [32m+[0m[0m tags                               = {
+              [32m+[0m[0m environment           = "stag-lbtest"
+              [32m+[0m[0m owners                = "hr-lbtest"
+              [32m+[0m[0m terraform-aws-modules = "alb"
+            }
+          [32m+[0m[0m tags_all                           = {
+              [32m+[0m[0m environment           = "stag-lbtest"
+              [32m+[0m[0m owners                = "hr-lbtest"
+              [32m+[0m[0m terraform-aws-modules = "alb"
+            }
+          [32m+[0m[0m target_failover                    = (known after apply)
+          [32m+[0m[0m target_health_state                = (known after apply)
+          [32m+[0m[0m target_type                        = "instance"
+          [32m+[0m[0m vpc_id                             = (known after apply)
+        }
+    }
+  [32m+[0m[0m vpc_cidr_block                  = "10.0.0.0/16"
+  [32m+[0m[0m vpc_id                          = (known after apply)
+  [32m+[0m[0m zone_id                         = (known after apply)
+[90m
+─────────────────────────────────────────────────────────────────────────────[0m
+
+Note: You didn't use the -out option to save this plan, so Terraform can't
+guarantee to take exactly these actions if you run "terraform apply" now.
